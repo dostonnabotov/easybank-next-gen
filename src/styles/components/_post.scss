@@ -1,0 +1,50 @@
+@use "../abstracts" as *;
+
+.posts {
+  --grid-gap: #{$posts-gap};
+  justify-items: center;
+}
+
+.post {
+  background-color: $post-background-color;
+  color: $post-color;
+
+  border: $post-border;
+  border-radius: $post-border-radius;
+  box-shadow: $post-box-shadow;
+  height: 100%;
+  overflow: hidden;
+}
+
+.post__title {
+  font-size: $post-title-font-size;
+
+  & a {
+    color: $post-link-color;
+    text-decoration: none;
+
+    @include hover() {
+      color: $post-link-color-hover;
+    }
+  }
+}
+
+.post__img-wrapper {
+  width: 100%;
+  aspect-ratio: $post-image-ratio;
+  overflow: hidden;
+}
+
+.post__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post__content {
+  padding: $post-padding;
+}
+
+.post__description {
+  @include line-clamp($post-description-line-clamp);
+}

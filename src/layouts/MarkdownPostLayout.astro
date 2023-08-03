@@ -1,0 +1,25 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import FormattedDate from "../utils/FormattedDate.astro";
+
+const { title, image, description, publishDate } = Astro.props.frontmatter;
+---
+
+<BaseLayout title={title}>
+    <section class="section">
+      <div class="container" data-type="narrow">
+        <article class="content">
+          <h1>{title}</h1>
+          <img src={image.src} alt={image.alt} />
+          <p class="fs-300">
+            <FormattedDate date={publishDate} />
+          </p>
+          <p><em>{description}</em></p>
+
+          <br />
+
+          <slot />
+        </article>
+      </div>
+    </section>
+</BaseLayout>

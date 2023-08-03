@@ -1,0 +1,19 @@
+@use "../abstracts" as *;
+
+@each $type, $keys in $colors {
+  @each $key, $value in $keys {
+    @if $type == "gradient" {
+      .bg-#{$type}-#{$key} {
+        background-image: $value;
+      }
+    } @else {
+      .bg-#{$type}-#{$key} {
+        background-color: $value;
+      }
+
+      .text-#{$type}-#{$key} {
+        color: $value;
+      }
+    }
+  }
+}

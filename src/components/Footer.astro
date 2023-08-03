@@ -1,0 +1,32 @@
+---
+import BrandLogo from "./BrandLogo.astro";
+import Social from "./Social.astro";
+import Button from "./Button.astro";
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner | center-on-small-screen">
+      <div class="flow" data-flow-space="lg">
+        <BrandLogo theme="dark" />
+        <Social />
+      </div>
+
+      <nav class="footer__nav">
+        <ul role="list" class="flow">
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/coming-soon">Support</a></li>
+          <li><a href="/coming-soon">Privacy Policy</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__copyright | flow">
+        <Button as="link" href="#">Request invite</Button>
+        <p>© Easybank. All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+</footer>

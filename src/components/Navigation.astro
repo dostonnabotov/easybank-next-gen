@@ -1,0 +1,44 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navigationLinks = [
+  {
+    name: "Home",
+    url: "/",
+  },
+  {
+    name: "About",
+    url: "/about",
+  },
+  {
+    name: "Contact",
+    url: "/contact",
+  },
+  {
+    name: "Blog",
+    url: "/blog",
+  },
+  {
+    name: "Careers",
+    url: "/careers",
+  },
+];
+---
+
+<nav class="primary-nav" id="primary-nav" data-visible="false">
+  <ul role="list">
+    {
+      navigationLinks.map(({ url, name }) => (
+        <li>
+          <a
+            class="nav-link"
+            href={url}
+            aria-current={url == currentPath ? "page" : null}
+          >
+            {name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

@@ -1,0 +1,65 @@
+@use "../abstracts" as *;
+
+.hero {
+  overflow-y: visible;
+}
+
+.hero__inner {
+  display: grid;
+  align-items: center;
+  grid-template-areas:
+    "image"
+    "content";
+  gap: $hero-gap;
+
+  position: relative;
+  isolation: isolate;
+
+  @include mq(md) {
+    grid-template-columns: 5fr 6fr;
+    grid-template-areas: "content image";
+  }
+}
+
+.hero__img {
+  grid-area: image;
+  position: relative;
+}
+
+.hero__img::before {
+  content: "";
+  position: absolute;
+  top: $hero-pattern-top-small-screen;
+  bottom: $hero-pattern-bottom-small-screen;
+  right: $hero-pattern-right-small-screen;
+  left: $hero-pattern-left-small-screen;
+  background-image: url("/svg/bg-intro-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -2;
+
+  @include mq(md) {
+    top: $hero-pattern-top-large-screen;
+    bottom: $hero-pattern-bottom-large-screen;
+    right: $hero-pattern-right-large-screen;
+    left: $hero-pattern-left-large-screen;
+    background-image: url("/svg/bg-intro-desktop.svg");
+  }
+}
+
+.hero__img img {
+  margin-top: $hero-image-top-offset-small-screen;
+
+  @include mq(md) {
+    position: relative;
+    margin-top: $hero-image-top-offset-large-screen;
+    margin-bottom: $hero-image-bottom-offset-large-screen;
+    right: $hero-image-right-offset-large-screen;
+    scale: 1.3;
+  }
+}
+
+.hero__content {
+  grid-area: content;
+}

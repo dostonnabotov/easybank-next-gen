@@ -1,0 +1,22 @@
+$-ff-public-sans: "Public Sans", sans-serif;
+
+$font-families: (
+  "primary": $-ff-public-sans,
+);
+
+/// @see https://utopia.fyi/type/calculator - 16px -> 18px
+$font-sizes: (
+  "300": clamp(0.83rem, calc(0.81rem + 0.12vw), 0.9rem),
+  "400": clamp(1rem, calc(0.96rem + 0.22vw), 1.13rem),
+  "500": clamp(1.2rem, calc(1.13rem + 0.36vw), 1.41rem),
+  "600": clamp(1.44rem, calc(1.33rem + 0.55vw), 1.76rem),
+  "700": clamp(1.73rem, calc(1.56rem + 0.82vw), 2.2rem),
+  "800": clamp(2.07rem, calc(1.84rem + 1.17vw), 2.75rem),
+  "900": clamp(2.49rem, calc(2.16rem + 1.64vw), 3.43rem),
+);
+
+$font-weights: (
+  "light": 300,
+  "regular": 400,
+  "bold": 700,
+);

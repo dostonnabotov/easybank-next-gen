@@ -1,0 +1,41 @@
+@use "../abstracts" as *;
+
+.footer {
+  padding: $site-footer-padding;
+  background-color: $site-footer-background-color;
+  color: $site-footer-color;
+  font-size: $site-footer-font-size;
+
+  & a {
+    text-decoration: $site-footer-link-text-decoration;
+    color: $site-footer-link-color;
+
+    @include hover() {
+      text-decoration: $site-footer-link-text-decoration-hover;
+      color: $site-footer-link-color-hover;
+    }
+  }
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $site-footer-grid-gap;
+
+  @include mq(md) {
+    grid-template-columns: auto 1fr 1fr;
+  }
+}
+
+.footer__nav ul {
+  @include mq(sm) {
+    column-count: 2;
+  }
+}
+
+.footer__copyright {
+  @include mq(md) {
+    justify-self: end;
+    text-align: end;
+  }
+}

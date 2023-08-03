@@ -1,0 +1,47 @@
+---
+const socialLinks = [
+  {
+    name: "Facebook",
+    url: "#",
+  },
+  {
+    name: "YouTube",
+    url: "#",
+  },
+  {
+    name: "Twitter",
+    url: "#",
+  },
+  {
+    name: "Pinterest",
+    url: "#",
+  },
+  {
+    name: "Instagram",
+    url: "#",
+  },
+];
+---
+
+<ul role="list" class="flex-group">
+  {
+    socialLinks.map(({ name, url }) => (
+      <li>
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          <i class={`fa-brands fa-${name.toLowerCase()} fa-xl`} />
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style lang="scss">
+  @use "../styles/abstracts/" as *;
+  ul {
+    --flex-group-gap: 1rem;
+
+    @include mq(md, "max") {
+      justify-content: center;
+    }
+  }
+</style>

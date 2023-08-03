@@ -1,0 +1,64 @@
+@use "../abstracts" as *;
+
+.button {
+  display: inline-block;
+
+  border: $button-default-border;
+  border-radius: $button-default-border-radius;
+
+  background: $button-default-background;
+  color: $button-default-color;
+  padding: $button-default-padding;
+
+  text-decoration: $button-default-text-decoration;
+  text-transform: $button-default-text-transform;
+  font-size: $button-default-font-size;
+  font-weight: $button-default-font-weight;
+
+  cursor: pointer;
+
+  @include hover() {
+    border: $button-default-border-hover;
+    background: $button-default-background-hover;
+    color: $button-default-color-hover;
+    text-decoration: $button-default-text-decoration-hover;
+  }
+
+  &:active {
+    scale: 0.97;
+  }
+}
+
+.button[data-type="primary"] {
+  border: $button-primary-border;
+  border-radius: $button-primary-border-radius;
+
+  background: $button-primary-background;
+  color: $button-primary-color;
+  padding: $button-primary-padding;
+
+  text-decoration: $button-primary-text-decoration;
+  text-transform: $button-primary-text-transform;
+  font-size: $button-primary-font-size;
+  font-weight: $button-primary-font-weight;
+
+  @include hover() {
+    opacity: 0.8;
+    border: $button-primary-border-hover;
+    background: $button-primary-background-hover;
+    color: $button-primary-color-hover;
+    text-decoration: $button-primary-text-decoration-hover;
+  }
+}
+
+.button {
+  &[data-size="sm"] {
+    padding: $button-sm-padding;
+    font-size: $button-sm-font-size;
+  }
+
+  &[data-size="lg"] {
+    padding: $button-lg-padding;
+    font-size: $button-lg-font-size;
+  }
+}

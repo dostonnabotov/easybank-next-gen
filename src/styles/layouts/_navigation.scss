@@ -1,0 +1,56 @@
+@use "../abstracts" as *;
+
+$navigation-offset: 3rem;
+
+.primary-nav {
+  @include mq(md, "max") {
+    position: absolute;
+    top: calc(100% + $navigation-offset);
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-radius: 0.25rem;
+    padding: 2em;
+    box-shadow: 2px 2px 16px 0 rgba(0, 0, 0, 0.1);
+    z-index: 10;
+
+    display: none;
+
+    &[data-visible="true"] {
+      display: block;
+    }
+  }
+}
+
+.primary-nav ul {
+  display: flex;
+  gap: $navigation-gap;
+
+  @include mq(md, "max") {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.nav-link {
+  display: inline-block;
+  text-decoration: none;
+  color: $navigation-link-color-small-screen;
+  // border: 1px solid red;
+
+  @include mq(md) {
+    color: $navigation-link-color-large-screen;
+    padding: $site-header-padding;
+    border-block: 0.3em solid transparent;
+
+    &:is(:hover, :focus) {
+      border-bottom-color: teal;
+      color: $navigation-link-color-hover-large-screen;
+    }
+
+    &[aria-current="page"] {
+      border-bottom-color: teal;
+      color: $navigation-link-color-hover-large-screen;
+    }
+  }
+}

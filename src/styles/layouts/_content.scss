@@ -1,0 +1,52 @@
+@use "../abstracts" as *;
+
+.content * {
+  max-width: revert;
+  margin: revert;
+  font: revert;
+}
+
+.content :is(h1, h2, h3) {
+  font-family: $content-heading-font-family;
+  line-height: $content-heading-line-height;
+  text-wrap: balance;
+  color: $content-heading-color;
+}
+
+.content h1 {
+  font-size: $content-heading-1-font-size;
+  font-weight: $content-heading-1-font-weight;
+}
+
+.content h2 {
+  font-size: $content-heading-1-font-size;
+  font-weight: $content-heading-2-font-weight;
+}
+
+.content h3 {
+  font-size: $heading-3-font-size;
+  font-weight: $heading-3-font-weight;
+}
+
+.content a {
+  color: $content-link-color;
+  text-decoration: $content-link-text-decoration;
+
+  @include hover() {
+    color: $content-link-color-hover;
+    text-decoration: $content-link-text-decoration-hover;
+  }
+}
+
+.content :is(img, picture) {
+  width: 100%;
+  object-fit: cover;
+  border-radius: $content-image-border-radius;
+}
+
+.content blockquote {
+  margin: $content-blockquote-margin;
+  padding: $content-blockquote-padding;
+  background-color: $content-blockquote-background-color;
+  border-left: $content-blockquote-border-left;
+}

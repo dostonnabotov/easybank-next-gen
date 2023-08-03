@@ -1,0 +1,29 @@
+// global color tokens
+$-clr-white: hsl(0, 0%, 100%);
+$-clr-gray-very-light: hsl(0, 0%, 98%);
+$-clr-gray-light: hsl(220, 16%, 96%);
+$-clr-gray-mid: hsl(233, 8%, 62%);
+
+$-clr-blue-dark: hsl(233, 26%, 24%);
+
+$-clr-lime-mid: hsl(136, 65%, 51%);
+
+$-clr-cyan-mid: hsl(192, 70%, 51%);
+
+// colors for variables and utilities
+$colors: (
+  "neutral": (
+    "100": $-clr-white,
+    "200": $-clr-gray-very-light,
+    "300": $-clr-gray-light,
+    "400": $-clr-gray-mid,
+    "700": $-clr-blue-dark,
+  ),
+  "brand": (
+    "lime": $-clr-lime-mid,
+    "cyan": $-clr-cyan-mid,
+  ),
+  "gradient": (
+    "1": linear-gradient(90deg, $-clr-lime-mid 0%, $-clr-cyan-mid 100%),
+  ),
+);

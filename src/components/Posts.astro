@@ -1,0 +1,16 @@
+---
+import { getCollection } from "astro:content";
+import Post from "./Post.astro";
+
+const allBlogPosts = await getCollection("blog");
+
+const { limit } = Astro.props;
+
+const filteredPosts = allBlogPosts
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  ?.slice(0, limit);
+---
+
+<ul class="posts | grid" data-column-count="4" role="list">
+  {filteredPosts.map((post) => <Post {...post} />)}
+</ul>

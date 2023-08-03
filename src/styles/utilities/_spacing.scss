@@ -1,0 +1,17 @@
+@use "../abstracts" as *;
+
+.section {
+  padding-block: $section-padding-block;
+}
+
+.mx-auto {
+  margin-inline: auto;
+}
+
+.swap-order-sm-screen {
+  @include mq(md, "max") {
+    & > *:first-child {
+      order: 10;
+    }
+  }
+}

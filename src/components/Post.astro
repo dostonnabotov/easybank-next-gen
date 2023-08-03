@@ -1,0 +1,24 @@
+---
+import FormattedDate from "../utils/FormattedDate.astro";
+const { data, slug } = Astro.props;
+---
+
+<li>
+  <div class="post">
+    <div class="post__img-wrapper">
+      <img class="post__img" src={data.image.src} alt={data.image.alt} />
+    </div>
+    <div class="post__content | flow | fs-300" data-flow-space="sm">
+      <p>{data.author}</p>
+      <h3 class="post__title">
+        <a href={`/blog/${slug}`}>{data.title}</a>
+      </h3>
+      <p>
+        <FormattedDate date={data.publishDate} />
+      </p>
+      <p class="post__description">
+        {data.description}
+      </p>
+    </div>
+  </div>
+</li>

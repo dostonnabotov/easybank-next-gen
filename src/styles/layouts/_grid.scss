@@ -1,0 +1,32 @@
+@use "../abstracts" as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--column-count, 1), minmax(0, 1fr));
+  gap: var(--grid-gap, $grid-gap);
+}
+
+.grid[data-column-count="4"] {
+  @include mq(md) {
+    --column-count: 2;
+  }
+
+  @include mq(lg) {
+    --column-count: 4;
+  }
+}
+
+.even-columns {
+  display: grid;
+  align-items: center;
+  gap: var(--columns-gap, var(--size-4));
+
+  @include mq(md) {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+  }
+
+  &[data-columns-gap="xl"] {
+    --columns-gap: clamp(var(--size-10), 15vw, var(--size-12));
+  }
+}

@@ -1,0 +1,33 @@
+---
+const {
+  as = "button",
+  href,
+  className,
+  size = "md",
+  variant = "primary",
+  ...rest
+} = Astro.props;
+---
+
+{
+  as === "link" ? (
+    <a
+      href={href}
+      class:list={["button", className]}
+      data-type={variant}
+      data-size={size}
+      {...rest}
+    >
+      <slot />
+    </a>
+  ) : (
+    <button
+      class:list={["button", className]}
+      data-type={variant}
+      data-size={size}
+      {...rest}
+    >
+      <slot />
+    </button>
+  )
+}

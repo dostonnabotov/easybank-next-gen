@@ -1,0 +1,57 @@
+@use "../abstracts" as *;
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap");
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+
+  background-color: $base-background-color;
+  color: $base-color;
+
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  line-height: $heading-line-height-default;
+}
+
+:is(p, li, blockquote):where(:not([class])) {
+  max-width: 60ch;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+strong,
+b {
+  font-weight: var(--fw-bold);
+}
+
+small {
+  font-size: var(--fs-300);
+}
+
+figcaption {
+  text-align: center;
+  font-style: italic;
+}
+
+blockquote {
+  display: block;
+  padding: 1em;
+  background-color: var(--clr-neutral-300);
+  border-left: 0.25em solid var(--clr-brand-cyan);
+}
+
+::selection {
+  background-color: $selection-background-color;
+  color: $selection-color;
+}

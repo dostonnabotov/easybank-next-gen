@@ -1,0 +1,32 @@
+---
+import SkipLink from "./SkipLink.astro";
+import BrandLogo from "./BrandLogo.astro";
+import Navigation from "./Navigation.astro";
+import Button from "./Button.astro";
+
+import CloseIcon from "../assets/icons/icon-close.svg";
+import HamburgerIcon from "../assets/icons/icon-hamburger.svg";
+---
+
+<header class="header">
+  <SkipLink />
+  <div class="container">
+    <div class="header__inner">
+      <BrandLogo />
+      <Navigation />
+      <button
+        id="mobile-nav-toggle"
+        class="mobile-nav-toggle"
+        aria-controls="primary-nav"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Menu</span>
+        <img class="open-icon" src={HamburgerIcon} alt="Open" />
+        <img class="close-icon" src={CloseIcon} alt="Close" />
+      </button>
+      <Button as="link" href="#" className="hide-on-small-screen">
+        Request invite
+      </Button>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,19 @@
+@use "../abstracts" as *;
+
+.flow > *:where(:not(:first-child)) {
+  margin-top: $flow-space;
+}
+
+.flow {
+  &[data-flow-space="sm"] > *:where(:not(:first-child)) {
+    margin-top: $flow-space-sm;
+  }
+
+  &[data-flow-space="lg"] > *:where(:not(:first-child)) {
+    margin-top: $flow-space-lg;
+  }
+
+  &[data-flow-space="xl"] > *:where(:not(:first-child)) {
+    margin-top: $flow-space-xl;
+  }
+}

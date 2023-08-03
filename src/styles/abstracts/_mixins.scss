@@ -1,0 +1,36 @@
+@use "./breakpoints" as *;
+
+// media query
+@mixin mq($key, $width: "min") {
+  $size: map-get($breakpoints, $key);
+
+  @if ($size) {
+    @if $width == "min" {
+      @media (width >= $size) {
+        @content;
+      }
+    } @else if $width == "max" {
+      @media (width < $size) {
+        @content;
+      }
+    } @else {
+      @error "Unknown width value: `#{$width}`";
+    }
+  } @else {
+    @error "`#{$key}` does not exist in the $breakpoints";
+  }
+}
+
+// line clamp
+@mixin line-clamp($number) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $number;
+  overflow: hidden;
+}
+
+@mixin hover() {
+  &:is(:hover, :focus) {
+    @content;
+  }
+}
