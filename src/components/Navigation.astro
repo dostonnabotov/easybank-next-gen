@@ -1,6 +1,4 @@
 ---
-const currentPath = new URL(Astro.request.url).pathname;
-
 const navigationLinks = [
   {
     name: "Home",
@@ -28,17 +26,21 @@ const navigationLinks = [
 <nav class="primary-nav" id="primary-nav" data-visible="false">
   <ul role="list">
     {
-      navigationLinks.map(({ url, name }) => (
-        <li>
-          <a
-            class="nav-link"
-            href={url}
-            aria-current={url === currentPath ? "page" : null}
-          >
-            {name}
-          </a>
-        </li>
-      ))
+      navigationLinks.map(({ url, name }) => {
+        const currentPath = Astro.url.pathname;
+
+        return (
+          <li>
+            <a
+              class="nav-link"
+              href={url}
+              aria-current={url === currentPath ? "page" : null}
+            >
+              {name}
+            </a>
+          </li>
+        );
+      })
     }
   </ul>
 </nav>
