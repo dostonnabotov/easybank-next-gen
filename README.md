@@ -30,11 +30,6 @@ Users should be able to:
 
 ![Homepage](./public/screenshots/screenshot_home.png)
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); align-items: start; grid-auto-flow: row dense; gap: 1rem;">
-  <img src="./public/screenshots/screenshot_about.png" alt="About page">
-  <img src="./public/screenshots/screenshot_blog.png" alt="Blog page">
-</div>
-
 ### Links
 
 - Solution URL: [GitHub Repo](https://github.com/dostonnabotov/fem_easybank-landing-page)
