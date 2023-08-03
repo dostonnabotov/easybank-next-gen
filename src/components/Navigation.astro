@@ -1,5 +1,5 @@
 ---
-const currentPath = Astro.url.pathname;
+const currentPath = new URL(Astro.request.url).pathname;
 
 const navigationLinks = [
   {
@@ -33,7 +33,7 @@ const navigationLinks = [
           <a
             class="nav-link"
             href={url}
-            aria-current={url == currentPath ? "page" : null}
+            aria-current={url === currentPath ? "page" : null}
           >
             {name}
           </a>
