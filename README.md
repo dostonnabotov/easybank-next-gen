@@ -26,14 +26,19 @@ Users should be able to:
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
 
-### Screenshot
+### Screenshots
 
-![](./screenshot.jpg)
+![Homepage](./public/screenshots/screenshot_home.png)
+
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); align-items: start; grid-auto-flow: row dense; gap: 1rem;">
+  <img src="./public/screenshots/screenshot_about.png" alt="About page">
+  <img src="./public/screenshots/screenshot_blog.png" alt="Blog page">
+</div>
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub Repo](https://github.com/dostonnabotov/fem_easybank-landing-page)
+- Live Site URL: [Live Preview](https://tech-easybank-landing-page.netlify.app/)
 
 ## My process
 
@@ -45,41 +50,102 @@ Users should be able to:
 
 ### Features
 
-- Multi-page website ('404' and 'Coming Soon' included)
+- Multi-page website ('404' and 'Coming Soon' pages included)
 - Dynamic blog system with [Content Collections](https://docs.astro.build/en/guides/content-collections/)
+- Structured Sass style system (view `src/styles`)
+- Accessibility in mind
+- and, of course, clean code structure
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I got introduced to Astro Content Collection when I was building the dynamic part of blog.
 
-To see how you can add code snippets, see below:
+- Configuring the collections
 
-```html
-<h1>Some HTML code I'm proud of</h1>
+```js
+const blogCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    author: z.string().default("Anonymous"),
+    title: z.string(),
+    description: z.string(),
+    image: z
+      .object({
+        src: z.string(),
+        alt: z.string(),
+      })
+      .default({
+        src: "https://placehold.co/1200x800/png?text=NO+IMAGE\\nAVAILABLE",
+        alt: "No image found",
+      }),
+    publishDate: z.date(),
+  }),
+});
 ```
 
-```css
-.proud-of-this-css {
-  color: papayawhip;
+- Dynamically generating pages with `[slug].astro`
+
+```js
+export async function getStaticPaths() {
+  const blog = await getCollection("blog");
+
+  return blog.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
 ```
 
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
-```
+- Creating a single token to manage all essential styles
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+`styles/abstracts/_tokens.scss`
+
+```scss
+// base
+$base-font-family: var(--ff-primary);
+$base-font-size: var(--fs-400);
+$base-line-height: 1.5;
+// ....
+
+// layout
+$container-max-width: 80rem;
+$container-padding: var(--size-8);
+
+$section-padding-block: var(--size-13);
+// ....
+
+// button
+$button-default-border: 0;
+$button-default-border-radius: 100vw;
+$button-default-background: var(--clr-neutral-300);
+$button-default-color: var(--clr-neutral-700);
+// ....
+```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+- [x] Complete the landing page
+  - [x] Style system with Sass
+  - [x] Tricky mockup images layout
+- [x] Add custom '404' page
+  - [x] Design the page
+- [x] Add custom 'Coming Soon' page
+  - [x] Design the page
+- [x] Add 'About' page
+  - [x] Design the page
+- [ ] Add 'Careers' page
+  - [ ] Design the page
+  - [ ] Make it dynamic
+- [ ] Add 'Contact' page
+  - [ ] Forms markup
+  - [ ] Style system for forms
+- [ ] Further customize the 'Coming Soon' page _(optional)_
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Astro Documentation](https://docs.astro.build/en/getting-started/) - Tutorial and documentation
+- [StackOverflow](https://stackoverflow.com/) - Always comes to the rescue
+- [Kevin Powell's YouTube channel](https://www.youtube.com/@KevinPowell) - Great resource for learning CSS and Sass
 
 ## Author
 
@@ -87,6 +153,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 - Frontend Mentor - [@dostonnabotov](https://www.frontendmentor.io/profile/dostonnabotov)
 - Twitter - [@dostonnabotov](https://www.twitter.com/dostonnabotov)
 
+I am mostly active on [CodePen](https://codepen.io/dostonnabotov) building and learning stuff.
+
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+Thanks to [Frontend Mentor](https://www.frontendmentor.io/), I was able to get inspirations and build this project.
