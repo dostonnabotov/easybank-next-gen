@@ -2,6 +2,10 @@
 
 .hero {
   overflow-y: visible;
+
+  @include mq("md", "max") {
+    overflow-x: hidden;
+  }
 }
 
 .hero__inner {
