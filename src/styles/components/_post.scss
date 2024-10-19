@@ -48,3 +48,18 @@
 .post__description {
   @include line-clamp($post-description-line-clamp);
 }
+
+.team-image {
+  border-radius: 1rem;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  transition: 300ms ease;
+  transition-property: filter, box-shadow;
+  filter: grayscale(100);
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    filter: grayscale(0);
+  }
+}

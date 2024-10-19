@@ -1,7 +1,74 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Features from "../components/Features.astro";
 import Button from "../components/Button.astro";
+
+import ApiIcon from "../assets/icons/icon-api.svg";
+import BudgetingIcon from "../assets/icons/icon-budgeting.svg";
+import OnboardingIcon from "../assets/icons/icon-onboarding.svg";
+
+const valuesData = [
+  {
+    title: "Innovation",
+    description:
+      "We are committed to constantly improving with the latest technological advancements in banking.",
+    icon: ApiIcon,
+  },
+  {
+    title: "Trust",
+    description:
+      "We put your security and privacy first, ensuring that your data and money are safe with us.",
+    icon: OnboardingIcon,
+  },
+  {
+    title: "Transparency",
+    description:
+      "No hidden fees, no unnecessary paperwork. Our goal is to make banking as clear and simple as possible.",
+    icon: BudgetingIcon,
+  },
+];
+
+const teamData = [
+  {
+    name: "John Doe",
+    position: "CEO",
+    img: "/images/team/team-1.jpg",
+  },
+  {
+    name: "Mark Smith",
+    position: "CTO",
+    img: "/images/team/team-2.jpg",
+  },
+  {
+    name: "Michael Brown",
+    position: "Product Manager",
+    img: "/images/team/team-3.jpg",
+  },
+  {
+    name: "Emily Johnson",
+    position: "Marketing Lead",
+    img: "/images/team/team-4.jpg",
+  },
+  {
+    name: "Sarah Miller",
+    position: "UX/UI Designer",
+    img: "/images/team/team-5.jpg",
+  },
+  {
+    name: "David Wilson",
+    position: "Backend Developer",
+    img: "/images/team/team-6.jpg",
+  },
+  {
+    name: "Laura Garcia",
+    position: "Marketing Manager",
+    img: "/images/team/team-7.jpg",
+  },
+  {
+    name: "James Taylor",
+    position: "Data Scientist",
+    img: "/images/team/team-8.jpg",
+  },
+];
 ---
 
 <BaseLayout title="About Us">
@@ -11,16 +78,12 @@ import Button from "../components/Button.astro";
         <div class="flow">
           <h1 class="heading-1 | text-neutral-200">Who We Are</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Necessitatibus deserunt nihil sit est quibusdam blanditiis dolorem
-            dignissimos minima id. Illum eum non ut a amet dignissimos aliquid,
-            nobis error voluptatum.
-          </p>
-          <p>
-            Temporibus error vel eius ducimus ab voluptates accusamus explicabo
-            quidem ex soluta iure quasi, nihil, assumenda repellendus
-            reprehenderit laudantium? Nesciunt inventore natus hic optio nobis
-            expedita, cum saepe assumenda dolor!
+            EasyBank was created with one goal in mind: to make banking simple,
+            accessible, and secure for everyone. We believe in leveraging
+            cutting-edge technology to deliver a seamless banking experience
+            that empowers our customers. Whether you're <b>saving</b>,
+            <b>investing</b>, or simply managing <b>day-to-day finances</b>,
+            EasyBank is here to help you every step of the way.
           </p>
           <Button as="link" href="#">Learn more</Button>
         </div>
@@ -35,70 +98,74 @@ import Button from "../components/Button.astro";
     </div>
   </section>
 
-  <section class="section | reset-content-width | bg-neutral-200">
+  <section class="section | bg-neutral-300 | center-on-small-screen">
+    <div class="container flow" data-flow-space="xl">
+      <header class="flow text-center">
+        <h2 class="heading-2">Our Values</h2>
+      </header>
+
+      <div class="grid" data-column-count="3" style="--grid-gap: 4rem">
+        {
+          valuesData.map(({ title, description, icon }) => (
+            <div class="flow text-center">
+              <img src={icon} alt="" class="mx-auto" />
+              <h3 class="heading-3">{title}</h3>
+              <p>{description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section | bg-neutral-200">
+    <div class="container flow" data-flow-space="xl">
+      <header class="flow | text-center">
+        <h2 class="heading-2">Meet the Team</h2>
+        <p class="mx-auto">Meet some of the faces behind EasyBank.</p>
+      </header>
+
+      <div class="grid" data-column-count="4" style="--grid-gap: 2rem">
+        {
+          teamData.map(({ name, position, img }) => (
+            <div class="flow text-center" data-flow-space="sm">
+              <img src={img} alt="" class="team-image" />
+              <h3 class="heading-3">{name}</h3>
+              <p>{position}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section | reset-content-width | bg-neutral-100">
     <div class="container flow" data-type="narrow" data-flow-space="xl">
       <header class="flow | text-center">
-        <h2 class="heading-2">Our Story</h2>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum, et!
-        </p>
+        <h2 class="heading-2">Our Journey</h2>
+        <p>Learn about how our journey started.</p>
       </header>
 
       <article class="flow">
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure autem
-          vel exercitationem, ipsa at tenetur repellendus reiciendis fugiat
-          praesentium molestiae ratione ducimus minus laudantium. Magni, beatae?
-          Commodi quis sunt aliquam.
-        </p>
         <figure>
           <img src="/images/long-road-journey.jpg" alt="A long road journey" />
           <figcaption>A long road journey</figcaption>
         </figure>
         <p>
-          Veniam, soluta aspernatur cumque ad omnis quidem error exercitationem
-          nobis delectus quisquam consectetur eaque quam dolorem porro
-          voluptates quas est cum deserunt, illo fugit? Autem amet ipsa sapiente
-          molestiae magnam!
-        </p>
-        <blockquote>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias,
-          perferendis nam? Optio aperiam voluptatibus praesentium!
-        </blockquote>
-        <p>
-          Sequi voluptatibus accusantium, est soluta laboriosam voluptatem
-          nostrum vitae amet deserunt. Mollitia similique officia aliquid
-          perspiciatis placeat autem recusandae odit laudantium, illum accusamus
-          pariatur fuga praesentium? Veritatis enim amet laudantium. Magnam
-          nobis ipsum officiis est ratione exercitationem nisi culpa dolor
-          mollitia nihil debitis aut aliquid quaerat, quos laudantium labore ab
-          iste explicabo qui libero quam dolorem. Vitae alias illo deserunt.
+          Founded in 2020, EasyBank set out to disrupt traditional banking by
+          creating an entirely digital platform. In just a few years, we've
+          grown from a small fintech startup to one of the most trusted names in
+          digital banking. Today, we serve millions of customers worldwide, and
+          we continue to innovate and expand our services.
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate
-          mollitia, nisi numquam quis perspiciatis facilis, enim repudiandae, id
-          expedita quibusdam est. Vero cumque ipsam quis error minus a
-          voluptatibus quaerat?
+          <a href="#">Continue reading...</a>
         </p>
       </article>
     </div>
   </section>
 
-  <section class="section | bg-neutral-300 | center-on-small-screen">
-    <div class="container flow" data-flow-space="xl">
-      <header class="flow">
-        <h2 class="heading-2">Why choose Easybank?</h2>
-        <p>
-          We leverage Open Banking to turn your bank account into your financial
-          hub. Control your finances like never before.
-        </p>
-      </header>
-
-      <Features />
-    </div>
-  </section>
-
-  <section class="section">
+  <section class="section bg-neutral-200">
     <div class="container">
       <div class="even-columns" data-columns-gap="xl">
         <div>
@@ -111,16 +178,13 @@ import Button from "../components/Button.astro";
         <div class="flow">
           <h2 class="heading-2">Careers</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
-            voluptatem error perferendis a natus aperiam quam beatae aspernatur
-            ab culpa nisi doloribus excepturi dolor sit asperiores suscipit
-            debitis, illum illo.
+            At EasyBank, we believe that our employees are our greatest asset.
+            We offer a dynamic, inclusive, and supportive work environment,
+            competitive salaries, and opportunities for growth.
           </p>
           <p>
-            Temporibus est incidunt atque, adipisci reprehenderit optio id
-            recusandae iste quaerat hic minus laboriosam dolore similique
-            explicabo, repudiandae rerum nemo. Ipsa quos suscipit reprehenderit.
-            Recusandae laboriosam officiis mollitia natus omnis?
+            If you're passionate about fintech and want to be part of a team
+            that's changing the way people bank, we'd love to hear from you.
           </p>
           <Button as="link" href="/careers">Learn more</Button>
         </div>

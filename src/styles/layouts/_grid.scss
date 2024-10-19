@@ -16,6 +16,16 @@
   }
 }
 
+.grid[data-column-count="3"] {
+  @include mq(md) {
+    --column-count: 2;
+  }
+
+  @include mq(lg) {
+    --column-count: 3;
+  }
+}
+
 .even-columns {
   display: grid;
   align-items: center;
